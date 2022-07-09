@@ -1,10 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:myportfolio/animationWidgets/animatedemoji.dart';
 import 'package:myportfolio/components/bodyTextWidgets/intro_text_descrb.dart';
-
-
-
 
 class SalutationMessage extends StatefulWidget {
   const SalutationMessage({Key? key}) : super(key: key);
@@ -52,4 +48,3 @@ class _SalutationMessageState extends State<SalutationMessage> {
     );
   }
 }
-

@@ -1,8 +1,5 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:myportfolio/components/Menubar/top_menu_bar.dart';
-
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({Key? key}) : super(key: key);
@@ -27,28 +24,21 @@ class CustomAppBar extends StatelessWidget {
             width: 80,
           ),
           MenuBarItems(
+            title: 'Skills',
+            press: () {},
+          ),
+          const SizedBox(
+            width: 80,
+          ),
+          MenuBarItems(
             title: 'Projects',
             press: () {},
           ),
           const SizedBox(
             width: 80,
           ),
-          MenuBarItems(
-            title: 'About',
-            press: () {},
-          ),
-          const SizedBox(
-            width: 80,
-          ),
-          MenuBarItems(
-            title: 'FAqs',
-            press: () {},
-          ),
-          const SizedBox(
-            width: 80,
-          ),
-          MenuBarItems(
-            title: 'Portfolio',
+          MenuBarHireMe(
+            title: 'Hire me',
             press: () {},
           ),
         ],
