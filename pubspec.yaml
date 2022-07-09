@@ -75,15 +75,13 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-  #   - family: MyFlutterApps
-  #     fonts:
-  #       - asset: assets/
-      - family: Source sans
-        fonts:
-          - asset: assets/fonts/SourceSansPro-Regular.ttf     
-  
-    
 
+    - family: Source sans
+      fonts:
+        - asset: assets/fonts/SourceSansPro-Regular.ttf
+    - family: MyPortFicon
+      fonts:
+        - asset: assets/fonts/MyPortFicon.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

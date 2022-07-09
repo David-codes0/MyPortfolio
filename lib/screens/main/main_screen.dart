@@ -1,7 +1,11 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:myportfolio/components/Intro_text.dart';
-import 'package:myportfolio/components/app_bar.dart';
+import 'package:myportfolio/animationWidgets/big_monitor_ani.dart';
+import 'package:myportfolio/animationWidgets/bottom_scr_ani.dart';
+import 'package:myportfolio/animationWidgets/center_scr_text_ani.dart';
+import 'package:myportfolio/components/Menubar/app_bar.dart';
+import 'package:myportfolio/components/bodyTextWidgets/Intro_text.dart';
+import 'package:myportfolio/constants.dart';
+import 'package:myportfolio/my_port_ficon_icons.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -17,14 +21,17 @@ class MainScreen extends StatelessWidget {
               height: size.height,
               width: size.width,
               padding: const EdgeInsets.all(30),
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('images/MainPage1.png'),
-                  fit: BoxFit.fill,
-                ),
-              ),
               child: Stack(
                 children: [
+                  const MyImageAnimation(),
+                  Positioned(
+                    bottom: 210,
+                    right: 40,
+                    child: Image.asset(
+                      'images/MainPage5.png',
+                      scale: 1.27,
+                    ),
+                  ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: const [
@@ -37,7 +44,15 @@ class MainScreen extends StatelessWidget {
                   ),
                   const BigMonitor(),
                   const CenterScreenAnimation(),
-                  const BottomScrIconAnimation()
+                  Positioned(
+                    bottom: 0,
+                    child: Container(
+                      height: 130,
+                      width: 1300,
+                      color: primaryColor,
+                    ),
+                  ),
+                  const BottomScrIconAnimation(),
                 ],
               ),
             ),
@@ -49,45 +64,46 @@ class MainScreen extends StatelessWidget {
   }
 }
 
-
-////////
-class BottomScrIconAnimation extends StatefulWidget {
-  const BottomScrIconAnimation({
+class MyImageAnimation extends StatefulWidget {
+  const MyImageAnimation({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<BottomScrIconAnimation> createState() => _BottomScrIconAnimationState();
+  State<MyImageAnimation> createState() => _MyImageAnimationState();
 }
 
-class _BottomScrIconAnimationState extends State<BottomScrIconAnimation>  with SingleTickerProviderStateMixin{
+class _MyImageAnimationState extends State<MyImageAnimation>
+    with SingleTickerProviderStateMixin {
   late AnimationController settingIconController;
-@override
+  @override
+  // ignore: must_call_super
   void initState() {
-settingIconController = AnimationController(
-  vsync: this,
-  duration: const Duration(seconds: 3),
-);
+    settingIconController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 8),
+    )..repeat();
   }
+
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: const [
-        Positioned(
-          left: 20,
-          bottom: 10,
-          child: Icon(
-            Icons.settings,
-            color: Colors.white,
-            size: 50,
-          ),
-        )
-      ],
+    return Positioned(
+      bottom: 160,
+      right: 35,
+      child: RotationTransition(
+        turns: Tween<double>(begin: 0.0, end: 1.0).animate(
+          CurvedAnimation(parent: settingIconController, curve: Curves.linear),
+        ),
+        child: const Icon(
+          MyPortFicon.imageicon,
+          color: Colors.white,
+          size: 300,
+        ),
+      ),
     );
   }
 }
 
-/////
 class SkillMeasurement extends StatelessWidget {
   const SkillMeasurement({
     Key? key,
@@ -95,77 +111,32 @@ class SkillMeasurement extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 600,
-    );
-  }
-}
-
-
-////
-class BigMonitor extends StatelessWidget {
-  const BigMonitor({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Positioned(
-      left: 450,
-      bottom: 100,
-      child: Icon(
-        Icons.desktop_windows,
-        color: Colors.white.withOpacity(0.1),
-        size: 400,
-      ),
-    );
-  }
-}
-
-//////
-class CenterScreenAnimation extends StatelessWidget {
-  const CenterScreenAnimation({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Positioned(
-      left: 500,
-      bottom: 300,
-      child: AnimatedTextKit(
-        animatedTexts: [
-          TypewriterAnimatedText(
-            ' <_> < / > ',
-            textStyle:
-                TextStyle(color: Colors.white.withOpacity(0.1), fontSize: 70),
-          ),
-          TypewriterAnimatedText(
-            '  { ?? _ } ',
-            textStyle:
-                TextStyle(color: Colors.white.withOpacity(0.1), fontSize: 70),
-          ),
-          TypewriterAnimatedText(
-            ' ( ) => { } ',
-            textStyle:
-                TextStyle(color: Colors.white.withOpacity(0.1), fontSize: 70),
-          ),
-          TypewriterAnimatedText(
-            '  Build ',
-            textStyle:
-                TextStyle(color: Colors.white.withOpacity(0.1), fontSize: 70),
-          ),
-          TypewriterAnimatedText(
-            ' Clean Code',
-            textStyle:
-                TextStyle(color: Colors.white.withOpacity(0.1), fontSize: 50),
-          ),
-        ],
-        repeatForever: true,
-        pause: const Duration(milliseconds: 1000),
-        displayFullTextOnTap: true,
-        stopPauseOnTap: true,
-      ),
-    );
+    return SizedBox(
+        height: 600,
+        child: Stack(
+          alignment: AlignmentDirectional.topStart,
+          clipBehavior: Clip.none,
+          children: const [
+            Text(
+              'data',
+              style: TextStyle(
+                fontSize: 45,
+                color: primaryColor,
+                fontFamily: 'Source sans',
+              ),
+            ),
+            Positioned(
+              bottom: 45,
+              child: Text(
+                'data',
+                style: TextStyle(
+                  fontSize: 45,
+                  color: primaryColor,
+                  fontFamily: 'Source sans',
+                ),
+              ),
+            ),
+          ],
+        ));
   }
 }
