@@ -54,3 +54,4 @@ class _BottomScrIconAnimationState extends State<BottomScrIconAnimation>
     );
   }
 }
+

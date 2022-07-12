@@ -21,6 +21,7 @@ class MenuBarHireMe extends StatelessWidget {
         final colorChanger2 = isHovered ? Colors.black : Colors.white;
         final colorChanger3 = isHovered ? primaryColor : Colors.white;
         return OutlinedButton(
+          clipBehavior: Clip.none,
           style: OutlinedButton.styleFrom(
             minimumSize: const Size.square(65),
             // textStyle: const TextStyle(

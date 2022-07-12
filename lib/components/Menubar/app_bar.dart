@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myportfolio/components/Menubar/top_menu_bar.dart';
+import 'package:myportfolio/my_port_social_icons.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({Key? key}) : super(key: key);
@@ -7,36 +8,33 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(0),
+      margin: const EdgeInsets.all(32),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.menu),
-          ),
-          const Spacer(),
           MenuBarItems(
             title: 'Home',
             press: () {},
           ),
           const SizedBox(
-            width: 80,
+            width: 30,
           ),
           MenuBarItems(
             title: 'Skills',
             press: () {},
           ),
           const SizedBox(
-            width: 80,
+            width: 30,
           ),
           MenuBarItems(
             title: 'Projects',
             press: () {},
           ),
           const SizedBox(
-            width: 80,
+            width: 30,
           ),
+          IconButton(onPressed: () {}, icon: const Icon(MyPortSocial.linkedin)),
+          IconButton(onPressed: () {}, icon: const Icon(MyPortSocial.twitter)),
+          IconButton(onPressed: () {}, icon: const Icon(MyPortSocial.whatsapp)),
           MenuBarHireMe(
             title: 'Hire me',
             press: () {},

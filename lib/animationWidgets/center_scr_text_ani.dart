@@ -47,3 +47,14 @@ class CenterScreenAnimation extends StatelessWidget {
     );
   }
 }
+
+class CenterScreenAnimationMob extends StatelessWidget {
+  const CenterScreenAnimationMob({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const SizedBox();
+  }
+}

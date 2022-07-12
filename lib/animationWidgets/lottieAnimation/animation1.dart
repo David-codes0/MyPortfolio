@@ -13,7 +13,7 @@ class _LottieAniState extends State<LottieAni> {
   @override
   void initState() {
     lottie = Lottie.asset(
-      "Programming1.json",
+      "images/Programming1.json",
       height: 200,
       width: 200,
     );

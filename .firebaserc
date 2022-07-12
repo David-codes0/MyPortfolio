@@ -1,7 +1,5 @@
 {
   "projects": {
-    "default": "myportfolio-devcamp",
-    "staging": "myportfolio-devcamp"
-  },
-  "targets": {}
+    "default": "myportfolio-devcamp"
+  }
 }
