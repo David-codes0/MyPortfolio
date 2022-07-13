@@ -4,10 +4,11 @@ import 'package:myportfolio/animationWidgets/bottom_scr_ani.dart';
 import 'package:myportfolio/animationWidgets/center_scr_text_ani.dart';
 import 'package:myportfolio/animationWidgets/my_image_animation.dart';
 import 'package:myportfolio/components/Menubar/app_bar.dart';
-import 'package:myportfolio/components/Menubar/top_menu_bar.dart';
+import 'package:myportfolio/components/Menubar/drawer_menu_bar.dart';
 import 'package:myportfolio/components/bodyTextWidgets/Intro_text.dart';
 import 'package:myportfolio/constants.dart';
-import 'package:myportfolio/my_port_social_icons.dart';
+import 'package:myportfolio/models/projects.dart';
+import 'package:myportfolio/screens/Projects/my_project_page.dart';
 import 'package:myportfolio/screens/Skill/skill_screen.dart';
 import 'package:myportfolio/screens/pLanguages/language_show.dart';
 
@@ -42,44 +43,7 @@ class _MainScreenState extends State<MainScreen> {
               backgroundColor: Colors.black,
               child: Container(
                 margin: const EdgeInsets.all(30),
-                child: ListView(
-                  children: [
-                    MenuBarItems(
-                      title: 'Home',
-                      press: () {},
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    MenuBarItems(
-                      title: 'Skills',
-                      press: () {},
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    MenuBarItems(
-                      title: 'Projects',
-                      press: () {},
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    IconButton(
-                        onPressed: () {},
-                        icon: const Icon(MyPortSocial.linkedin)),
-                    IconButton(
-                        onPressed: () {},
-                        icon: const Icon(MyPortSocial.twitter)),
-                    IconButton(
-                        onPressed: () {},
-                        icon: const Icon(MyPortSocial.whatsapp)),
-                    MenuBarHireMe(
-                      title: 'Hire me',
-                      press: () {},
-                    ),
-                  ],
-                ),
+                child: const DrawerMenuBar(),
               ))
           : null,
       body: SingleChildScrollView(
@@ -144,10 +108,12 @@ class _MainScreenState extends State<MainScreen> {
             ),
             const SkillMeasurement(),
             const StackGrade(),
+            const MyProjectPage(),
           ],
         ),
       ),
     );
   }
 }
+
 

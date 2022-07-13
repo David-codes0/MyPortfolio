@@ -10,7 +10,7 @@ class AnimatedEmoji extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatedTextKit(
       animatedTexts: [
-        RotateAnimatedText(
+        ScaleAnimatedText(
           '👋',
           textStyle: const TextStyle(
             fontSize: 45,
@@ -18,7 +18,6 @@ class AnimatedEmoji extends StatelessWidget {
             fontWeight: FontWeight.bold,
             fontFamily: 'Source sans',
           ),
-          rotateOut: false,
         )
       ],
       repeatForever: true,
